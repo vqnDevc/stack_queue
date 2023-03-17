@@ -15,8 +15,8 @@ int main() {
     stack<char> st;
     queue<char> q;
 
-    for (int i = 0; i < (int)s.length(); i++) {
-        if (s[i] == ']') {
+    for (char c:s) {
+        if (c == ']') {
             while (st.top() != '[') {
                 q.push(st.top());
                 st.pop();
@@ -48,12 +48,11 @@ int main() {
             }
 
             for (int i = 0; i < n; i++) {
-                for (int j = 0; j < (int)_s.length(); j++) {
-                    st.push(_s[j]);
-                }
+                for(char j:_s)
+                    st.push(j);
             }
         } else {
-            st.push(s[i]);
+            st.push(c);
         }
     }
 
