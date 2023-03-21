@@ -15,7 +15,24 @@ int main() {
     cin >> s;
     stack<char> st;    //tạo 1 stack để đẩy hết ký tự chuỗi s vào
     queue<char> q;     // queue để lưu trữ ký tự trong dấu [] và xử lý
+    
+    // ví dụ input = AB[2E[2CD]F]
+    // trong stack : D                
+    //               C
+    //               2
+    //               [
+    //               E
+    //               2
+    //               [
+    //               B
+    //               A
+    
+    //  khi gặp ']' duyệt stack đến ký tự '[' và truyền vào queue:    D              stack lúc này là: E 2 '[' B A
+    //                                                                C
+    //                                                                2
 
+    // sau khi biến đổi xong ta thu được chuỗi s trong queue là CDCD và push sang stack => ta được D C D C E 2 '[' B A ,, lặp tương tự là được chuỗi cần tìm
+    
     for (char c:s) {                        //duyệt từ đầu đến cuối các ký tự của string s
         if (c == ']') {                     // duyệt đến khi gặp ký tự ']' thì kiểm tra còn không thì đẩy ký tự vào stack st (1)
             while (st.top() != '[') {       
@@ -67,3 +84,4 @@ int main() {
 
     return 0;
 }
+
